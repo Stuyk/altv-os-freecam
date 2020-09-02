@@ -104,7 +104,7 @@ function handleCamera() {
         if (player.getSyncedMeta('FREECAM')) {
             native.setEntityAlpha(player.scriptID, 0, false);
         } else {
-            native.setEntityAlpha(player.scriptID, 0, true);
+            native.resetEntityAlpha(player.scriptID);
         }
     }
 
