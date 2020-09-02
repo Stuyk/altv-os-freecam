@@ -92,7 +92,7 @@ alt.on('syncedMetaChange', (entity, key, value) => {
     addTemporaryText(`freecamStatus`, `Freecam: On`, 0.95, 0.2, 0.4, 255, 255, 255, 255, 2000);
 });
 
-function handleCamera() {
+alt.everyTick(() => {
     const players = [...alt.Player.all];
 
     for (let i = 0; i < players.length; i++) {
@@ -107,7 +107,9 @@ function handleCamera() {
             native.resetEntityAlpha(player.scriptID);
         }
     }
+});
 
+function handleCamera() {
     if (native.isPauseMenuActive()) {
         return;
     }
