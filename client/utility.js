@@ -37,9 +37,9 @@ export function rotationToDirection(rotation) {
 }
 
 export function getCameraRotation(cam) {
-    return { ...native.getCamRot(cam, 2) };
+    return { ...native.getCamRot(parseFloat(cam), 2) };
 }
 
 export function getCameraPosition(cam) {
-    return { ...native.getCamCoord(cam) };
+    return { ...native.getCamCoord(parseFloat(cam)) };
 }
