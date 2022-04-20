@@ -43,6 +43,6 @@ alt.everyTick(() => {
         native.setTextColour(data.r, data.g, data.b, data.a);
         native.setTextJustification(0);
         native.setTextOutline();
-        native.endTextCommandDisplayText(data.x, data.y);
+        native.endTextCommandDisplayText(data.x, data.y, 0);
     }
 });

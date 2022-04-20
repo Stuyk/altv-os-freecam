@@ -72,7 +72,7 @@ alt.on('syncedMetaChange', (entity, key, value) => {
         }
 
         if (cam) {
-            native.renderScriptCams(false, false, 255, true, false);
+            native.renderScriptCams(false, false, 255, true, false, 0);
             native.setCamActive(cam, false);
             native.destroyCam(cam, false);
             native.destroyAllCams(true);
@@ -119,13 +119,13 @@ function handleCamera() {
     }
 
     if (!cam) {
-        native.destroyAllCams();
+        native.destroyAllCams(true);
 
         const coords = { ...alt.Player.local.pos };
-        cam = native.createCamWithParams('DEFAULT_SCRIPTED_CAMERA', coords.x, coords.y, coords.z, 0, 0, 0, 90);
-        native.setCamActive(cam, true);
-        native.renderScriptCams(true, false, 0, true, false);
-        native.setCamAffectsAiming(cam, false);
+        cam = native.createCamWithParams('DEFAULT_SCRIPTED_CAMERA', coords.x, coords.y, coords.z, 0, 0, 358, 18, true, 2);
+        native.setCamActive(parseFloat(cam), true);
+        native.renderScriptCams(true, false, 0, true, false, 0);
+        native.setCamAffectsAiming(parseFloat(cam), false);
     }
 
     for (let i = 0; i < disabledControls.length; i++) {
@@ -234,8 +234,8 @@ function handleCamera() {
         z: pos.z - movementVector.z + rightVector.z + zSpeedUp - zSpeedDown
     };
 
-    native.setCamCoord(cam, newPos.x, newPos.y, newPos.z);
-    native.setCamRot(cam, rot.x + rightAxisY * -5.0, 0.0, rot.z + rightAxisX * -5.0, 2);
+    native.setCamCoord(parseFloat(cam), newPos.x, newPos.y, newPos.z);
+    native.setCamRot(parseFloat(cam), rot.x + rightAxisY * -5.0, 0.0, rot.z + rightAxisX * -5.0, 2);
 
     if (Date.now() > nextUpdate) {
         nextUpdate = Date.now() + timeBetweenPlayerUpdates;
