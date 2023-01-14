@@ -133,7 +133,7 @@ function handleCamera() {
         native.disableControlAction(0, disabledControl, true);
     }
 
-    native.disableFirstPersonCamThisFrame();
+    native.disableOnFootFirstPersonViewThisUpdate();
     native.blockWeaponWheelThisFrame();
 
     // 42 - D Pad Up || ]
