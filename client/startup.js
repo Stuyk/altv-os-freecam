@@ -8,8 +8,8 @@ import {
     getCameraRotation,
     getCrossProduct,
     getNormalizedVector
-} from './utility';
-import { addTemporaryText } from './text';
+} from './utility.js';
+import { addTemporaryText } from './text.js';
 
 const disabledControls = [
     30, // A & D
